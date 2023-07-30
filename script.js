@@ -1,9 +1,9 @@
-//random number
-function getRandomNumber(num) {
+//generate random number
+function generateRandomNumber(num) {
   return Math.floor(Math.random() * num);
 }
 
-//storing the parts of the message
+//store the parts of the message
 const messageParts = {
   weekday: [
     "Monday",
@@ -23,18 +23,40 @@ const messageParts = {
     "water the flowers",
     "clean the car",
   ],
-  moodOfTheDay: [
-    "moody", 
-    "happy", 
-    "relaxed", 
-    "sad", 
-    "mad"
-  ],
+  moodOfTheDay: ["moody", "happy", "relaxed", "sad", "mad"],
 };
 
-//console.log(messageParts.weekday);
-
 //array for storing the message parts
-const message = [];
+let message = [];
 
-//creating the message output
+//generate the message output
+for (let prop in messageParts) {
+  //get a random index of each property
+  let propIndex = generateRandomNumber(messageParts[prop].length);
+
+  //create output depending on property
+  switch (prop) {
+    case "weekday":
+      message.push(`On ${messageParts[prop][propIndex]}:`);
+      break;
+    case "taskOfTheDay":
+      message.push(
+        `Your task of the day will be "${messageParts[prop][propIndex]}".`
+      );
+      break;
+    case "moodOfTheDay":
+      message.push(`You will be ${messageParts[prop][propIndex]} on this day.`);
+      break;
+    default:
+      message.push("Information is missing.");
+      break;
+  }
+}
+
+function formattingMessage(message) {
+  let formattedMessage = message.join("\n");
+
+  return formattedMessage;
+}
+
+console.log(formattingMessage(message));
