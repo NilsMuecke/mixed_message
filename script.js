@@ -1,3 +1,6 @@
+//Message Generator
+//create a random message each time the script is executed
+
 //generate random number
 function generateRandomNumber(num) {
   return Math.floor(Math.random() * num);
@@ -53,10 +56,10 @@ for (let prop in messageParts) {
   }
 }
 
-function formattingMessage(message) {
+function formatMessage(message) {
   let formattedMessage = message.join("\n");
 
   return formattedMessage;
 }
 
-console.log(formattingMessage(message));
+console.log(formatMessage(message));
