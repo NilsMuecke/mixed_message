@@ -48,7 +48,7 @@ for (let prop in messageParts) {
       );
       break;
     case "moodOfTheDay":
-      message.push(`You will be ${messageParts[prop][propIndex]} on this day.`);
+      message.push(`You mood will be "${messageParts[prop][propIndex]}" on this day.`);
       break;
     default:
       message.push("Information is missing.");
@@ -57,7 +57,7 @@ for (let prop in messageParts) {
 }
 
 function formatMessage(message) {
-  let formattedMessage = message.join("\n");
+  let formattedMessage = message.join("\n-> ");
 
   return formattedMessage;
 }
